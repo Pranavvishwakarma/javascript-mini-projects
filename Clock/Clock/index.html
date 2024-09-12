@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Clock</title>
+<link rel="stylesheet" href="index.js">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Virtual Clock</h1>
+
+ <span id="day">
+        Day
+    </span>
+    <span id="Year">
+        Year
+    </span>
+    <span id="ampm">
+        AM
+    </span>
+</div>
+    <div class="clock">
+        <div>
+            <span class="text">
+                Hours
+            </span>
+            <span id="hours">
+                00 
+            </span>
+           
+        </div>
+        <div> <span class="text">
+            Minutes
+        </span>
+            <span id="minutes">
+                00
+            </span>
+           
+        </div>
+        <div>
+            <span class="text">
+                Seconds
+            </span>
+            <span id="seconds">
+                00
+            </span>
+           
+        </div>
+        
+    </div>
+
+    <div>
+        
+</body>
+<script>
+const hour = document.getElementById("hours");
+const minute = document.getElementById("minutes");
+const second = document.getElementById("seconds");
+const amandpms = document.getElementById("ampm");
+const year=document.getElementById('Year');
+const day=document.getElementById('day');
+
+// document.write(Date().getday());
+// const getday=()=>{
+//        let week=
+//         week[0]="Sun",
+//     }
+const week=new Array(7);{
+      week[0]="Sunday";
+      week[1]="Monday";
+      week[2]="Tuesday";
+      week[3]="wednesday";
+      week[4]="Thusday";
+      week[5]="Friday";
+      week[6]="satarday";    
+}
+const Clock = () => {
+    let h = new Date().getHours();
+    let m = new Date().getMinutes();
+    let s = new Date().getSeconds();
+    let year=new Date().getFullYear();
+    let currentday=new Date();
+    const t=week[currentday.getDay()];
+       
+    let amandpms = "AM";
+
+
+    if(h>12){
+        h -= 12;
+        time_date = "PM";
+    }
+
+    h = h<10 ? "0" + h: h;
+    m = m<10 ? "0" + m: m;
+    s = s<10 ? "0" + s: s;
+    setTimeout(() => {
+        Clock();
+    },1000)
+    day.innerHTML=t;
+    Year.innerHTML=year;
+    hour.innerHTML = h;
+    minute.innerHTML = m;
+    second.innerHTML = s;
+    amandpm.innerHTML = ampm;
+   
+};
+
+Clock();
+</script>
+</html>
